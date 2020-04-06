@@ -4,13 +4,13 @@ import { Image, Text, View, Button } from "react-native";
 import PropTypes from "prop-types";
 
 import jwtDecode from "jwt-decode";
-import getEnvVars from '../../environment';
+import getEnvVars from "../../environment";
 import { toQueryString, nonce } from "../helpers/authHelper";
 
-import commonStyles from "../styles/index";
+import commonStyles from "../styles";
+import { STATUS } from "../constants/application";
 
 const { AUTH0 } = getEnvVars();
-import { STATUS } from "../constants/application";
 
 const Login = ({ onAuthentication }) => {
   const handleResponse = response => {

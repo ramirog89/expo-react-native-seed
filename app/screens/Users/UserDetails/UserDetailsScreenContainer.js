@@ -13,7 +13,4 @@ const mapDispatchToProps = dispatch => ({
   resetUser: () => dispatch(userState.actions.resetUser())
 });
 
-export default connect(
-  mapStatesToProps,
-  mapDispatchToProps
-)(UserDetailsScreen);
+export default connect(mapStatesToProps, mapDispatchToProps)(UserDetailsScreen);

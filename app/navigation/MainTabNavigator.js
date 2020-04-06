@@ -77,6 +77,7 @@ const tabNavigator = () => (
       component={HomeStackScreen}
       options={{
         tabBarLabel: "Home",
+        // eslint-disable-next-line react/display-name
         tabBarIcon: () => (
           <TabBarIcon
             name={
@@ -85,7 +86,7 @@ const tabNavigator = () => (
                 : ICONS.HOME.ANDROID
             }
           />
-        ),
+        )
       }}
     />
     <Tab.Screen
@@ -93,6 +94,7 @@ const tabNavigator = () => (
       component={UserStackScreen}
       options={{
         tabBarLabel: "User",
+        // eslint-disable-next-line react/display-name
         tabBarIcon: () => (
           <TabBarIcon
             name={
@@ -101,7 +103,7 @@ const tabNavigator = () => (
                 : ICONS.USERS.ANDROID
             }
           />
-        ),
+        )
       }}
     />
   </Tab.Navigator>

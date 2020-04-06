@@ -90,9 +90,9 @@ export const SCREENS = {
 };
 
 export const FIELDS = {
-    NAME: "name",
-    EMAIL: "email",
-    PHONE: "phone"
+  NAME: "name",
+  EMAIL: "email",
+  PHONE: "phone"
 };
 
 export const LAST_REQUEST_TIME = "lastRequestTime";

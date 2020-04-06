@@ -10,13 +10,13 @@ export const actions = {
       type: ActionType.SETTINGS_BEGIN
     };
   },
-  settingsSuccess: (settings) => {
+  settingsSuccess: settings => {
     return {
       type: ActionType.SETTINGS_SUCCESS,
       data: settings
     };
   },
-  settingsFailed: (error) => {
+  settingsFailed: error => {
     return {
       type: ActionType.SETTINGS_FAILED,
       message: error

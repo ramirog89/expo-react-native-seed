@@ -21,31 +21,31 @@ export const actions = {
     };
   },
 
-  usersSuccess: (users) => {
+  usersSuccess: users => {
     return {
       type: ActionType.USERS_SUCCESS,
       data: users
     };
   },
 
-  usersFailed: (error) => {
+  usersFailed: error => {
     return {
       type: ActionType.USERS_FAILED,
       message: error
     };
   },
-  userCreateRequest: (user) => ({
+  userCreateRequest: user => ({
     type: ActionType.USER_CREATE_BEGIN,
     payload: { user }
   }),
-  userCreateSuccess: (user) => {
+  userCreateSuccess: user => {
     return {
       type: ActionType.USER_CREATE_SUCCESS,
       data: user
     };
   },
 
-  userCreateFailed: (error) => {
+  userCreateFailed: error => {
     return {
       type: ActionType.USER_CREATE_FAILED,
       message: error
@@ -56,14 +56,14 @@ export const actions = {
     type: ActionType.USER_UPDATE_BEGIN,
     payload: { user }
   }),
-  userUpdateSuccess: (user) => {
+  userUpdateSuccess: user => {
     return {
       type: ActionType.USER_UPDATE_SUCCESS,
       data: user
     };
   },
 
-  userUpdateFailed: (error) => {
+  userUpdateFailed: error => {
     return {
       type: ActionType.USER_UPDATE_FAILED,
       message: error
@@ -73,13 +73,13 @@ export const actions = {
     type: ActionType.USER_DELETE_BEGIN,
     payload: { id }
   }),
-  userDeleteSuccess: (userId) => {
+  userDeleteSuccess: userId => {
     return {
       type: ActionType.USER_DELETE_SUCCESS,
       data: userId
     };
   },
-  userDeleteFailed: (error) => {
+  userDeleteFailed: error => {
     return {
       type: ActionType.USER_DELETE_FAILED,
       message: error

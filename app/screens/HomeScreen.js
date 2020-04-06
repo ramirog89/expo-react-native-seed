@@ -2,7 +2,7 @@ import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import commonStyles from "../styles/index";
+import commonStyles from "../styles";
 
 const HomeScreen = () => {
   const handleHelpPress = () => {

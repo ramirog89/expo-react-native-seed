@@ -1,61 +1,54 @@
 import React, { useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
-import {
-  ScrollView,
-  View,
-  Text,
-  Alert,
-  TouchableOpacity
-} from "react-native";
+import { ScrollView, View, Text, Alert, TouchableOpacity } from "react-native";
 import { Table, Row } from "react-native-table-component";
 import { Icon, Fab } from "native-base";
 
 import AppNavigationOptions from "../../navigation/NavigationOptions";
 import AppHeader from "../../navigation/NavigationHeader";
 
-import Loading from "../../components/Loading/Loading";
+// import Loading from "../../components/Loading/Loading";
 
-import commonStyles from "../../styles/index";
+import commonStyles from "../../styles";
 import styles from "./UsersScreen.style";
 
-import { COLORS, AVAILABLE_PLATFORMS, SCREENS } from "../../constants/application";
+import { COLORS, SCREENS } from "../../constants/application";
 
-export const UsersScreen = ({
-  users,
-  getUsers,
-  navigation,
-  deleteUser
-}) => {
+export const UsersScreen = ({ users, getUsers, navigation, deleteUser }) => {
   const { navigate } = navigation;
   useEffect(() => {
     getUsers();
   }, [getUsers]);
 
   const handleCreate = useCallback(() => {
-      navigate(SCREENS.USER_DETAILS);
-  }, []);
+    navigate(SCREENS.USER_DETAILS);
+  }, [navigate]);
 
-  const handleDelete = useCallback(id => {
+  const handleDelete = useCallback(
+    id => {
       deleteUser(id);
-  }, []);
+    },
+    [deleteUser]
+  );
 
-  const handleUpdate = useCallback(id => {
+  const handleUpdate = useCallback(
+    id => {
       const userSelected = users.data.find(user => user.id === id);
       navigate(SCREENS.USER_DETAILS, { userSelected });
-  }, [users]);
+    },
+    [navigate, users.data]
+  );
 
   const buttonElements = id => (
     <View style={styles.viewContainer}>
       <TouchableOpacity
         style={styles.btnTouch}
         onPress={() => handleDelete(id)}
-      >
-      </TouchableOpacity>
+      ></TouchableOpacity>
       <TouchableOpacity
         style={styles.btnTouch}
         onPress={() => handleUpdate(id)}
-      >
-      </TouchableOpacity>
+      ></TouchableOpacity>
     </View>
   );
 
