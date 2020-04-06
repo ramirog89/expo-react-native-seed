@@ -1,0 +1,49 @@
+{
+  "extends": [
+    "standard",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended",
+    "plugin:unicorn/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard",
+    "prettier/unicorn"
+  ],
+  "plugins": [
+    "flowtype",
+    "react",
+    "react-native",
+    "prettier",
+    "standard",
+    "unicorn",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true,
+    "react-native/react-native": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
+    "import/no-named-as-default": "off",
+    "unicorn/filename-case": ["off", { "case": "camelCase" }],
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/no-process-exit": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
+    "react-native/no-raw-text": 2
+  }
+}
