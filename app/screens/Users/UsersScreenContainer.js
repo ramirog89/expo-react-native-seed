@@ -12,7 +12,4 @@ const mapDispatchToProps = dispatch => ({
   deleteUser: id => dispatch(userState.actions.userDeleteRequest(id))
 });
 
-export default connect(
-  mapStatesToProps,
-  mapDispatchToProps
-)(UsersScreen);
+export default connect(mapStatesToProps, mapDispatchToProps)(UsersScreen);
