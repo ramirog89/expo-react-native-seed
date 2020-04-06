@@ -8,16 +8,12 @@ const user = (state = initialState, action) => {
         isFetching: true,
         receivedAt: null
       });
-
     case ActionType.USERS_SUCCESS:
-      return {
-        data: action.data,
-        error: false,
-        errorMessage: null,
+      return Object.assign({}, state, {
+        data: action.payload.users,
         isFetching: false,
         receivedAt: Date.now()
-      };
-
+      });
     case ActionType.USERS_FAILED:
       return {
         error: true,

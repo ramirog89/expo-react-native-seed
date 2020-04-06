@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "React Native Starter",
-    "slug": "react-native-starter",
+    "name": "development Nexton",
+    "slug": "development-nexton-app",
     "privacy": "public",
     "platforms": [
       "ios",
@@ -24,7 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "nextonlabs-react-native-starter",
+      "bundleIdentifier": "com.nexton.seed.development",
       "publishBundlePath": "ios/react-native-starter/Supporting/shell-app.bundle",
       "publishManifestPath": "ios/react-native-starter/Supporting/shell-app-manifest.json"
     },
@@ -34,7 +34,7 @@
       "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.12.2-sdk34.0.0-767c7d3b-87b6-4f80-a9af-92ce67e2a49d.tar.gz"
     },
     "android": {
-      "package": "nextonlabs.react.native.starter",
+      "package": "com.nexton.seed.development",
       "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
       "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     }

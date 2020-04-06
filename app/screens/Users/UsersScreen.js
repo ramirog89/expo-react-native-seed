@@ -7,7 +7,7 @@ import { Icon, Fab } from "native-base";
 import AppNavigationOptions from "../../navigation/NavigationOptions";
 import AppHeader from "../../navigation/NavigationHeader";
 
-// import Loading from "../../components/Loading/Loading";
+import Loading from "../../components/Loading/Loading";
 
 import commonStyles from "../../styles";
 import styles from "./UsersScreen.style";
@@ -33,10 +33,11 @@ export const UsersScreen = ({ users, getUsers, navigation, deleteUser }) => {
 
   const handleUpdate = useCallback(
     id => {
-      const userSelected = users.data.find(user => user.id === id);
+      const userSelected =
+        users && users.data && users.data.find(user => user.id === id);
       navigate(SCREENS.USER_DETAILS, { userSelected });
     },
-    [navigate, users.data]
+    [navigate, users]
   );
 
   const buttonElements = id => (
@@ -52,16 +53,10 @@ export const UsersScreen = ({ users, getUsers, navigation, deleteUser }) => {
     </View>
   );
 
-  // if (!users && users.isFetching) {
-  //   return <Loading />;
-  // }
+  console.log('usersss', users);
 
-  if (!users || !users.data) {
-    return (
-      <View>
-        <Text>No Users</Text>
-      </View>
-    );
+  if (!users || !users.data || users.isFetching) {
+    return <Loading />;
   }
 
   if (users.deleted && users.receivedAt) {

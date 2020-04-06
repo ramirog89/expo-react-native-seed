@@ -5,7 +5,6 @@ import { actions } from "./actions";
 
 export function* registerChatUser(payload) {
   try {
-    yield put(actions.settingsRequest());
     const response = yield call(apiService.find, {
       entity: "settings/account"
     });

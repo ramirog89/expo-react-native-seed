@@ -13,12 +13,10 @@ const withDevtools = composeWithDevTools({
   shouldCatchErrors: true
 });
 
-const store = createStore(
+export const store = createStore(
   combineReducers({
     core: coreState.reducer,
     user: userState.reducer
   }),
   withDevtools(applyMiddleware(sagaMiddleware), Reactotron.createEnhancer())
 );
-
-export default store;

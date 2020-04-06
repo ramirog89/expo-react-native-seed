@@ -4,13 +4,11 @@ import { Image, Text, View, Button } from "react-native";
 import PropTypes from "prop-types";
 
 import jwtDecode from "jwt-decode";
-import getEnvVars from "../../environment";
+import { ENV } from "../constants/environment";
 import { toQueryString, nonce } from "../helpers/authHelper";
 
 import commonStyles from "../styles";
 import { STATUS } from "../constants/application";
-
-const { AUTH0 } = getEnvVars();
 
 const Login = ({ onAuthentication }) => {
   const handleResponse = response => {
@@ -37,9 +35,9 @@ const Login = ({ onAuthentication }) => {
     const redirectUrl = AuthSession.getRedirectUrl();
     const response = await AuthSession.startAsync({
       authUrl:
-        `${AUTH0.DOMAIN}/authorize` +
+        `${ENV.AUTH0.DOMAIN}/authorize` +
         toQueryString({
-          client_id: AUTH0.CLIENT_ID,
+          client_id: ENV.AUTH0.CLIENT_ID,
           response_type: "token id_token",
           scope: "openid profile",
           nonce,

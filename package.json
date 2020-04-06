@@ -1,9 +1,13 @@
 {
-"name": "expo-react-native-seed",
-  "license": "MIT",
+  "name": "expo-react-native-seed",
   "main": "node_modules/expo/AppEntry.js",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
-    "start": "expo start",
+    "start": "yarn start:dev",
+    "start:dev": "yarn build-config:development && expo start",
+    "start:qa": "yarn build-config:development && expo start",
+    "start:prod": "yarn build-config:development && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -11,7 +15,10 @@
     "test": "jest --watchAll=false --coverage --verbose",
     "test:watch": "yarn test --watchAll=true",
     "lint": "eslint --ext .js --ext .jsx --fix ./app",
-    "format": "yarn prettier --write \"app/**/*.{js,jsx}\""
+    "format": "yarn prettier --write \"app/**/*.{js,jsx}\"",
+    "build-config:development": "cross-env NODE_ENV=development node ./build-config.js",
+    "build-config:qa": "cross-env NODE_ENV=qa node ./build-config.js",
+    "build-config:production": "cross-env NODE_ENV=production node ./build-config.js"
   },
   "pre-commit": [
     "lint",

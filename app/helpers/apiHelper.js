@@ -1,5 +1,5 @@
 import axios from "axios";
-import { config } from "../constants";
+import { ENV } from "../constants/environment";
 
 class ApiService {
   http = axios;
@@ -20,20 +20,19 @@ class ApiService {
 
     const requestParams = {
       method: method.toLowerCase(),
-      baseURL: config.SERVICE.BASE_URL,
+      baseURL: ENV.API.URL,
       url,
       params,
       data,
       headers: this.headers(),
       ...extraOptions
     };
-
     return this.http(requestParams).then(response => response.data);
   };
 
   find = async (options = {}) => {
     const { entity, query = {}, ...extraOptions } = options;
-    const { q, page = 1, limit = 99, sortBy, sortDirection, fields } = query;
+    const { q, page = 0, limit = 99, sortBy, sortDirection, fields } = query;
     return this.request({
       method: "GET",
       url: `/${entity}`,

@@ -15,19 +15,14 @@ export const ActionType = {
 };
 
 export const actions = {
-  usersRequest: () => {
-    return {
-      type: ActionType.USERS_BEGIN
-    };
-  },
-
-  usersSuccess: users => {
-    return {
-      type: ActionType.USERS_SUCCESS,
-      data: users
-    };
-  },
-
+  usersRequest: () => ({
+    type: ActionType.USERS_BEGIN,
+    payload: {}
+  }),
+  usersSuccess: users => ({
+    type: ActionType.USERS_SUCCESS,
+    payload: { users }
+  }),
   usersFailed: error => {
     return {
       type: ActionType.USERS_FAILED,
