@@ -1,11 +1,11 @@
 {
-  "name": "expo-react-native-starter",
-  "main": "node_modules/expo/AppEntry.js",
+  "name": "expo-react-native-seed",
   "license": "MIT",
-  "engines": {
-    "node": ">=10.6.0",
-    "npm": ">=6.0.0"
-  },
+  "main": "node_modules/expo/AppEntry.js",
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -14,12 +14,6 @@
     "eject": "expo eject",
     "test": "jest --watchAll --coverage --verbose",
     "lint": "eslint --ext .js --ext .jsx --fix ./app"
-  },
-  "jest": {
-    "preset": "jest-expo",
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
-    ]
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.6",
@@ -69,6 +63,16 @@
     "react-test-renderer": "^16.13.1",
     "reactotron-react-native": "^3.6.4",
     "reactotron-redux": "^3.1.1"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
+  },
+  "engines": {
+    "node": ">=10.6.0",
+    "npm": ">=6.0.0"
   },
   "browserslist": {
     "production": [
