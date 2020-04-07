@@ -5,11 +5,14 @@ import PropTypes from "prop-types";
 import styles from "./styles";
 
 export default class ErrorBoundary extends React.Component {
-  state = {
-    hasError: false,
-    error: false,
-    info: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+      error: false,
+      info: false
+    };
+  }
 
   static getDerivedStateFromError(error) {
     return { error, hasError: true };
@@ -29,11 +32,9 @@ export default class ErrorBoundary extends React.Component {
         <View style={styles.container}>
           <View style={styles.errorReport}>
             <Text>Error: {this.state.error.name}</Text>
-            {/* <Text>{this.state.error.message}</Text> */}
           </View>
           <View style={styles.infoReport}>
             <Text>Please try again</Text>
-            {/* <Text>{this.state.info.componentStack}</Text> */}
           </View>
         </View>
       );
