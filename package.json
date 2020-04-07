@@ -18,7 +18,9 @@
     "format": "yarn prettier --write \"app/**/*.{js,jsx}\"",
     "build-config:development": "cross-env NODE_ENV=development node ./build-config.js",
     "build-config:qa": "cross-env NODE_ENV=qa node ./build-config.js",
-    "build-config:production": "cross-env NODE_ENV=production node ./build-config.js"
+    "build-config:production": "cross-env NODE_ENV=production node ./build-config.js",
+    "build:ios": "yarn build-config:production && yarn expo build:ios",
+    "build:android": "yarn build-config:production && yarn expo build:android -t app-bundle"
   },
   "pre-commit": [
     "lint",
