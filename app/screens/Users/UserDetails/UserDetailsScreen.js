@@ -11,6 +11,7 @@ import { FIELDS, SCREENS } from "../../../constants/application";
 import commonStyles from "../../../styles";
 
 export const UserDetailsScreen = ({
+  route,
   navigation,
   users,
   createUser,
@@ -23,8 +24,9 @@ export const UserDetailsScreen = ({
     };
   }, [resetUser]);
 
-  const { navigate, getParam } = navigation;
-  const user = getParam("userSelected", null);
+  const { navigate } = navigation;
+  const { userSelected: user = null } = route.params || {};
+
   const [userFields, setUserFieldValues] = useState({
     id: (user && user.id) || "",
     name: (user && user.name) || "",
@@ -137,6 +139,7 @@ export const UserDetailsScreen = ({
 };
 
 UserDetailsScreen.propTypes = {
+  route: PropTypes.object,
   navigation: PropTypes.object,
   users: PropTypes.object,
   createUser: PropTypes.func,

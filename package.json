@@ -12,7 +12,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest --watchAll=false --coverage --verbose",
+    "test": "jest --forceExit --detectOpenHandles --watchAll=false --coverage --verbose",
     "test:watch": "yarn test --watchAll=true",
     "lint": "eslint --ext .js --ext .jsx --fix ./app",
     "format": "yarn prettier --write \"app/**/*.{js,jsx}\"",
@@ -69,9 +69,7 @@
     "jest-expo": "^37.0.0",
     "pre-commit": "^1.2.2",
     "react-devtools": "^3.6.3",
-    "react-test-renderer": "^16.13.1",
-    "reactotron-react-native": "^3.6.4",
-    "reactotron-redux": "^3.1.1"
+    "react-test-renderer": "^16.13.1"
   },
   "jest": {
     "preset": "jest-expo",

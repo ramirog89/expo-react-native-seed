@@ -4,7 +4,7 @@ import { userState } from "../../../state-mgmt/user";
 import { UserDetailsScreen } from "./UserDetailsScreen";
 
 const mapStatesToProps = state => ({
-  users: state.users
+  users: state.user
 });
 
 const mapDispatchToProps = dispatch => ({

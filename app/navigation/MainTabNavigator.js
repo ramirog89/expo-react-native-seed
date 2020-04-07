@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import TabBarIcon from "../components/TabBarIcon";
-import HomeScreen from "../screens/HomeScreen";
+import HomeScreen from "../screens/Home";
 import UsersScreen from "../screens/Users";
 import UserDetailsScreen from "../screens/Users/UserDetails";
 
@@ -38,7 +38,7 @@ const UserStack = createStackNavigator();
 function UserStackScreen() {
   return (
     <UserStack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Users"
       headerMode="screen"
       screenOptions={{
         headerTintColor: "white",
@@ -46,14 +46,14 @@ function UserStackScreen() {
       }}
     >
       <UserStack.Screen
-        name="User Screen"
+        name="Users"
         component={UsersScreen}
         options={{
           title: "User Screen"
         }}
       />
       <UserStack.Screen
-        name="User Detail"
+        name="UserDetails"
         component={UserDetailsScreen}
         options={{
           title: "User Detail"

@@ -4,11 +4,11 @@ import { Image, Text, View, Button } from "react-native";
 import PropTypes from "prop-types";
 
 import jwtDecode from "jwt-decode";
-import { ENV } from "../constants/environment";
-import { toQueryString, nonce } from "../helpers/authHelper";
+import { ENV } from "../../constants";
+import { toQueryString, nonce } from "../../helpers/authHelper";
 
-import commonStyles from "../styles";
-import { STATUS } from "../constants/application";
+import commonStyles from "../../styles";
+import { STATUS } from "../../constants/application";
 
 const Login = ({ onAuthentication }) => {
   const handleResponse = response => {
@@ -54,8 +54,8 @@ const Login = ({ onAuthentication }) => {
         <Image
           source={
             __DEV__
-              ? require("../assets/images/nextonlabs-logo.png")
-              : require("../assets/images/nextonlabs-logo.png")
+              ? require("../../assets/images/nextonlabs-logo.png")
+              : require("../../assets/images/nextonlabs-logo.png")
           }
           style={commonStyles.welcomeImage}
         />

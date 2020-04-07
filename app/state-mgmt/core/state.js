@@ -1,9 +1,6 @@
 export const initialState = {
   data: null,
-  isFetching: false,
-  isUpdating: false,
-  receivedAt: null,
+  isLoading: false,
   error: false,
-  updated: false,
   errorMessage: null
 };

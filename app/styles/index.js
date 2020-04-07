@@ -38,7 +38,8 @@ const commonStyles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: "center",
-    marginHorizontal: 50
+    marginHorizontal: 50,
+    margin: 200
   },
   homeScreenFilename: {
     marginVertical: 7

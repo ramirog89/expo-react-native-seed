@@ -2,7 +2,7 @@ import * as WebBrowser from "expo-web-browser";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import commonStyles from "../styles";
+import commonStyles from "../../styles";
 
 const HomeScreen = () => {
   const handleHelpPress = () => {
@@ -17,8 +17,8 @@ const HomeScreen = () => {
         <Image
           source={
             __DEV__
-              ? require("../assets/images/nextonlabs-logo.png")
-              : require("../assets/images/nextonlabs-logo.png")
+              ? require("../../assets/images/nextonlabs-logo.png")
+              : require("../../assets/images/nextonlabs-logo.png")
           }
           style={commonStyles.welcomeImage}
         />

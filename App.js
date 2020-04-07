@@ -3,31 +3,18 @@ import { Asset } from "expo-asset";
 import * as Font from "expo-font";
 
 import React, { useState } from "react";
-import { Platform, StatusBar, StyleSheet, View, Alert } from "react-native";
+import { Platform, StatusBar, View, Alert } from "react-native";
 import { Provider } from "react-redux";
 
 import { store, sagaMiddleware } from "./app/state-mgmt/store";
 import rootSaga from "./app/state-mgmt/rootSaga";
+
 import AppNavigator from "./app/navigation/AppNavigator";
 import Login from "./app/components/Login";
-
-if (__DEV__) {
-  import("./ReactotronConfig").then(() => console.log("Reactotron Configured"));
-}
+import ErrorBoundary from "./app/components/ErrorBoundary";
+import styles from "./app/styles";
 
 sagaMiddleware.run(rootSaga);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-  getStartedContainer: {
-    alignItems: "center",
-    marginHorizontal: 50,
-    margin: 200
-  }
-});
 
 const App = props => {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -74,18 +61,22 @@ const App = props => {
         onFinish={() => handleFinishLoading(setLoadingComplete)}
       />
     );
-  } else {
-    return userName ? (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' ? <StatusBar barStyle="default"/> : null}
-        <Provider store={store}>
-          <AppNavigator />
-        </Provider>
-      </View>
-    ) : (
-      <Login onAuthentication={handleAuthentication} />
-    );
   }
+
+  return (
+    <ErrorBoundary>
+      {userName ? (
+        <View style={styles.container}>
+          {Platform.OS === "ios" ? <StatusBar barStyle="default" /> : null}
+          <Provider store={store}>
+            <AppNavigator />
+          </Provider>
+        </View>
+      ) : (
+        <Login onAuthentication={handleAuthentication} />
+      )}
+    </ErrorBoundary>
+  );
 };
 
 export default App;
