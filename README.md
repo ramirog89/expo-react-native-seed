@@ -1,4 +1,4 @@
-# Expo - React Native App - Examples
+# Expo - React Native App
 
 ## Background
 
