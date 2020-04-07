@@ -17,73 +17,50 @@ export const ActionType = {
 export const actions = {
   usersRequest: () => ({
     type: ActionType.USERS_BEGIN,
-    payload: {}
+    payload: null
   }),
   usersSuccess: users => ({
     type: ActionType.USERS_SUCCESS,
     payload: { users }
   }),
-  usersFailed: error => {
-    return {
-      type: ActionType.USERS_FAILED,
-      message: error
-    };
-  },
+  usersFailed: error => ({
+    type: ActionType.USERS_FAILED,
+    payload: { error }
+  }),
   userCreateRequest: user => ({
     type: ActionType.USER_CREATE_BEGIN,
     payload: { user }
   }),
-  userCreateSuccess: user => {
-    return {
-      type: ActionType.USER_CREATE_SUCCESS,
-      data: user
-    };
-  },
-
-  userCreateFailed: error => {
-    return {
-      type: ActionType.USER_CREATE_FAILED,
-      message: error
-    };
-  },
-
+  userCreateSuccess: user => ({
+    type: ActionType.USER_CREATE_SUCCESS,
+    payload: { user }
+  }),
+  userCreateFailed: error => ({
+    type: ActionType.USER_CREATE_FAILED,
+    payload: { error }
+  }),
   userUpdateRequest: user => ({
     type: ActionType.USER_UPDATE_BEGIN,
     payload: { user }
   }),
-  userUpdateSuccess: user => {
-    return {
-      type: ActionType.USER_UPDATE_SUCCESS,
-      data: user
-    };
-  },
-
-  userUpdateFailed: error => {
-    return {
-      type: ActionType.USER_UPDATE_FAILED,
-      message: error
-    };
-  },
+  userUpdateSuccess: user => ({
+    type: ActionType.USER_UPDATE_SUCCESS,
+    payload: { user }
+  }),
+  userUpdateFailed: error => ({
+    type: ActionType.USER_UPDATE_FAILED,
+    payload: { error }
+  }),
   userDeleteRequest: id => ({
     type: ActionType.USER_DELETE_BEGIN,
     payload: { id }
   }),
-  userDeleteSuccess: userId => {
-    return {
-      type: ActionType.USER_DELETE_SUCCESS,
-      data: userId
-    };
-  },
-  userDeleteFailed: error => {
-    return {
-      type: ActionType.USER_DELETE_FAILED,
-      message: error
-    };
-  },
-
-  resetUser: () => {
-    return {
-      type: ActionType.USER_RESET
-    };
-  }
+  userDeleteSuccess: id => ({
+    type: ActionType.USER_DELETE_SUCCESS,
+    payload: { id }
+  }),
+  userDeleteFailed: error => ({
+    type: ActionType.USER_DELETE_FAILED,
+    payload: { error }
+  })
 };

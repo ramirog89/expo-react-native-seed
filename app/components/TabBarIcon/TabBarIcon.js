@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { COLORS } from "../constants/application";
+import { COLORS } from "../../constants/application";
 
 const styleTab = {
   marginBottom: -3

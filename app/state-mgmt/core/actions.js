@@ -5,21 +5,16 @@ export const ActionType = {
 };
 
 export const actions = {
-  settingsRequest: () => {
-    return {
-      type: ActionType.SETTINGS_BEGIN
-    };
-  },
-  settingsSuccess: settings => {
-    return {
-      type: ActionType.SETTINGS_SUCCESS,
-      data: settings
-    };
-  },
-  settingsFailed: error => {
-    return {
-      type: ActionType.SETTINGS_FAILED,
-      message: error
-    };
-  }
+  settingsRequest: () => ({
+    type: ActionType.SETTINGS_BEGIN,
+    payload: null
+  }),
+  settingsSuccess: settings => ({
+    type: ActionType.SETTINGS_SUCCESS,
+    payload: { settings }
+  }),
+  settingsFailed: error => ({
+    type: ActionType.SETTINGS_FAILED,
+    payload: { error }
+  })
 };

@@ -4,125 +4,89 @@ import { initialState } from "./state";
 const user = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.USERS_BEGIN:
-      return Object.assign({}, state, {
-        isFetching: true,
-        receivedAt: null
-      });
+      return {
+        ...state,
+        isLoading: true
+      };
     case ActionType.USERS_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         data: action.payload.users,
-        isFetching: false,
-        receivedAt: Date.now()
-      });
+        isLoading: false
+      };
     case ActionType.USERS_FAILED:
       return {
         error: true,
-        errorMessage: action.message,
-        isFetching: false,
-        receivedAt: Date.now(),
+        errorMessage: action.payload.error,
+        isLoading: false,
         data: []
       };
-
     case ActionType.USER_CREATE_BEGIN:
-      return Object.assign({}, state, {
-        isUpdating: true,
-        updated: false
-      });
-
-    case ActionType.USER_CREATE_SUCCESS: {
-      const userList = state.data || [];
-      userList.push(action.data);
-
       return {
-        data: userList,
+        ...state,
+        isLoading: true
+      };
+    case ActionType.USER_CREATE_SUCCESS: {
+      return {
+        // eslint-disable-next-line prettier/prettier
+        data: [
+          ...state.data,
+          action.payload.user
+        ],
         error: false,
         errorMessage: null,
-        isFetching: false,
-        isUpdating: false,
-        updated: true,
-        receivedAt: Date.now()
+        isLoading: false
       };
     }
-
     case ActionType.USER_CREATE_FAILED:
       return {
         error: true,
-        errorMessage: action.message,
-        isFetching: false,
-        isUpdating: false,
-        updated: false,
-        receivedAt: Date.now(),
+        errorMessage: action.payload.error,
+        isLoading: false,
         data: state.data
       };
-
     case ActionType.USER_UPDATE_BEGIN:
-      return Object.assign({}, state, {
-        isUpdating: true,
-        updated: false
-      });
-
+      return {
+        ...state,
+        isLoading: true
+      };
     case ActionType.USER_UPDATE_SUCCESS: {
       return {
         data: state.data.map(user =>
-          user.id === action.data.id ? { ...action.data } : user
+          user.id === action.payload.user.id ? { ...action.payload.user } : user
         ),
         error: false,
         errorMessage: null,
-        isFetching: false,
-        isUpdating: false,
-        updated: true,
-        receivedAt: Date.now()
+        isLoading: false
       };
     }
-
     case ActionType.USER_UPDATE_FAILED:
       return {
         error: true,
-        errorMessage: action.message,
-        isFetching: false,
-        isUpdating: false,
-        updated: true,
-        receivedAt: Date.now(),
+        errorMessage: action.payload.error,
+        isLoading: false,
         data: state.data
       };
-
     case ActionType.USER_DELETE_BEGIN:
-      return Object.assign({}, state, {
-        isUpdating: true,
-        deleted: false
-      });
-
-    case ActionType.USER_DELETE_SUCCESS: {
-      const userList = state.data.filter(user => user.id !== action.data);
-
       return {
-        data: userList,
+        ...state,
+        isLoading: true
+      };
+    case ActionType.USER_DELETE_SUCCESS: {
+      return {
+        data: state.data.filter(user => user.id !== action.payload.id),
         error: false,
         errorMessage: null,
-        isFetching: false,
-        isUpdating: false,
-        deleted: true,
-        receivedAt: Date.now()
+        isLoading: false
       };
     }
-
     case ActionType.USER_DELETE_FAILED:
       return {
         error: true,
-        errorMessage: action.message,
-        isFetching: false,
-        isUpdating: false,
-        deleted: true,
-        receivedAt: Date.now(),
+        errorMessage: action.payload.error,
+        isLoading: false,
         data: state.data
       };
-
-    case ActionType.USER_RESET:
-      return {
-        ...initialState,
-        data: state.data
-      };
-
     default:
       return state;
   }

@@ -2,8 +2,6 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import Reactotron from "../../ReactotronConfig";
-
 import { coreState } from "./core";
 import { userState } from "./user";
 
@@ -18,5 +16,5 @@ export const store = createStore(
     core: coreState.reducer,
     user: userState.reducer
   }),
-  withDevtools(applyMiddleware(sagaMiddleware), Reactotron.createEnhancer())
+  withDevtools(applyMiddleware(sagaMiddleware))
 );

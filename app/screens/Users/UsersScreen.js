@@ -7,7 +7,7 @@ import { Icon, Fab } from "native-base";
 import AppNavigationOptions from "../../navigation/NavigationOptions";
 import AppHeader from "../../navigation/NavigationHeader";
 
-import Loading from "../../components/Loading/Loading";
+import Loading from "../../components/Loading";
 
 import commonStyles from "../../styles";
 import styles from "./UsersScreen.style";
@@ -52,8 +52,6 @@ export const UsersScreen = ({ users, getUsers, navigation, deleteUser }) => {
       ></TouchableOpacity>
     </View>
   );
-
-  console.log('usersss', users);
 
   if (!users || !users.data || users.isFetching) {
     return <Loading />;

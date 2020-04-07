@@ -4,30 +4,26 @@ import { initialState } from "./state";
 const core = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.SETTINGS_BEGIN:
-      return Object.assign({}, state, {
-        isFetching: true
-      });
-
+      return {
+        ...state,
+        isLoading: true
+      };
     case ActionType.SETTINGS_SUCCESS:
       return {
         data: {
-          ...action.data
+          ...action.payload.settings
         },
         error: false,
         errorMessage: null,
-        isFetching: false,
-        receivedAt: Date.now()
+        isLoading: false
       };
-
     case ActionType.SETTINGS_FAILED:
       return {
         error: true,
-        errorMessage: action.message,
-        isFetching: false,
-        receivedAt: Date.now(),
+        errorMessage: action.payload.error,
+        isLoading: false,
         data: null
       };
-
     default:
       return state;
   }

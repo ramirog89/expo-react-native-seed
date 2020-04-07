@@ -32,17 +32,14 @@ class ApiService {
 
   find = async (options = {}) => {
     const { entity, query = {}, ...extraOptions } = options;
-    const { q, page = 0, limit = 99, sortBy, sortDirection, fields } = query;
+    const { q, page = 0, limit = 99 } = query;
     return this.request({
       method: "GET",
       url: `/${entity}`,
       params: {
         page,
         limit,
-        sortBy,
-        sortDirection,
         query: q,
-        fields,
         ...extraOptions
       }
     });

@@ -1,11 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Loading from "./Loading";
+import Home from "./Home";
 
-describe("<Loading />", () => {
+describe("<Home />", () => {
   it("should render", () => {
-    const rendered = renderer.create(<Loading />).toJSON();
+    const rendered = renderer.create(<Home />).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 });
