@@ -3,5 +3,5 @@
   "API_URL": "https://node-starter-v2.herokuapp.com/service",
   "EXPO_SERVER": "exp://192.168.0.10:19000",
   "AUTH0_CLIENT_ID": "jCXs0J4Ca61mfBgmeix3RVv0h2xvvDTi",
-  "AUTH0_DOMAIN": "https://nexton-testing.auth0.com",
+  "AUTH0_DOMAIN": "https://nexton-testing.auth0.com"
 }
