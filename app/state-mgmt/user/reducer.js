@@ -29,10 +29,7 @@ const user = (state = initialState, action) => {
     case ActionType.USER_CREATE_SUCCESS: {
       return {
         // eslint-disable-next-line prettier/prettier
-        data: [
-          ...state.data,
-          action.payload.user
-        ],
+        data: [...state.data, action.payload.user],
         error: false,
         errorMessage: null,
         isLoading: false

@@ -18,7 +18,9 @@
     "format": "yarn prettier --write \"app/**/*.{js,jsx}\"",
     "build-config:development": "cross-env NODE_ENV=development node ./build-config.js",
     "build-config:qa": "cross-env NODE_ENV=qa node ./build-config.js",
-    "build-config:production": "cross-env NODE_ENV=production node ./build-config.js"
+    "build-config:production": "cross-env NODE_ENV=production node ./build-config.js",
+    "build:ios": "yarn build-config:production && yarn expo build:ios",
+    "build:android": "yarn build-config:production && yarn expo build:android -t app-bundle"
   },
   "pre-commit": [
     "lint",
@@ -51,6 +53,8 @@
   },
   "devDependencies": {
     "babel-eslint": "10.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-standard": "^13.0.1",
@@ -67,15 +71,38 @@
     "eslint-plugin-unicorn": "^8.0.1",
     "jest": "^25.2.7",
     "jest-expo": "^37.0.0",
+    "jsdom": "^16.2.2",
     "pre-commit": "^1.2.2",
     "react-devtools": "^3.6.3",
     "react-test-renderer": "^16.13.1"
   },
   "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
-    ]
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "<rootDir>/app/**/*.{js,jsx}",
+      "!<rootDir>/app/test/**/*.js",
+      "!<rootDir>/app/**/styles.js",
+      "!<rootDir>/app/state-mgmt/rootState.js",
+      "!<rootDir>/App.jsx",
+      "!<rootDir>/app/state-mgmt/store.js",
+      "!<rootDir>/app/**/index.js"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "reporters": [
+      "default"
+    ],
+    "coverageDirectory": "./coverage"
   },
   "engines": {
     "node": ">=10.6.0",
