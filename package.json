@@ -71,7 +71,7 @@
     "eslint-plugin-unicorn": "^8.0.1",
     "jest": "^25.2.7",
     "jest-expo": "^37.0.0",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.5.0",
     "pre-commit": "^1.2.2",
     "react-devtools": "^3.6.3",
     "react-test-renderer": "^16.13.1"
